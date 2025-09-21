@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motocasal — Conectando motociclistas e anfitriões</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="color-scheme" content="dark light">
+    <meta name="description"
+        content="Motocasal — A maior plataforma que conecta motociclistas e anfitriões pelo Brasil. União, liberdade e paixão sobre duas rodas.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav__header">
+            <div class="nav__logo">
+                <a href="#">
+                    <img src="assets/logo.png" alt="Logo Moto Casais">
+                </a>
+            </div>
+            <div class="nav__menu_btn" id="menu-btn">
+                <i class="ri-menu-fill"></i>
+            </div>
+        </div>
+        <ul class="nav__links" id="nav-links">
+            <li><a href="#cadastro">Conecte-se</a></li>
+            <li><a href="#sobre">Sobre nós</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- Hero -->
+    <section class="relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+                <div>
+                    <h1 class="text-3xl md:text-6xl font-black leading-tight">
+                        "M" - A maior plataforma motociclista
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-rose-200">do
+                            planeta</span>
+                    </h1>
+                    <p class="mt-5 text-white/80 text-lg">
+                        O Motocasal conecta motociclistas a anfitriões confiáveis ao longo da rota. Segurança, conforto
+                        e
+                        comunidade em cadaparada.
+                    </p>
+                    <div class="mt-8 flex flex-wrap gap-3">
+                        <a href="#cadastro"
+                            class="px-5 py-3 rounded-xl bg-white text-black font-semibold hover:bg-rose-50 hover:text-rose-700 transition soft-shadow">Cadastre-se</a>
+                        <a href="#sobre"><button id="btnAbrirCadastro2"
+                                class="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 transition soft-shadow">Quem
+                                somos</button></a>
+                    </div>
+
+                </div>
+                <div class="relative">
+                    <div class="rounded-2xl bg-white/5 border border-white/10 p-5 md:p-6 soft-shadow">
+                        <div class="flex items-center justify-between mb-3">
+                            <p class="font-semibold">Prévia do mapa</p>
+                            <span class="text-xs px-2 py-1 rounded bg-white/10 size-450">Demo</span>
+                        </div>
+                        <!-- Mini mapa ilustrativo -->
+                        <iframe loading="lazy" class="w-full h-80 md:h-72 rounded-lg"
+                            src="https://www.google.com/maps/d/embed?mid=1BLBG6uQA4RyFd5z7XM6Yc9p_uzk0wmY&ehbc=2E312F"
+                            title="Mapa ilustrativo">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Eventos -->
+    <section class="eventos" id="eventos">
+        <div class="container">
+            <h2><i class="ri-calendar-2-line"></i> Próximos Eventos</h2>
+            <p>Confira os eventos direto da nossa comunidade!</p>
+
+            <div id="lista-eventos" class="eventos__lista"></div>
+
+            <a href="#mapa" class="btn">
+                <i class="ri-map-2-line"></i> Ver no Mapa
+            </a>
+        </div>
+    </section>
+
+    <!-- Seção de links abaixo do mapa -->
+    <section class="links-section" id="cadastro">
+        <h2>Cadastre-se</h2>
+        <div class="links-buttons">
+            <a href="https://forms.gle/GVR4P4TDUNDtKwx96" class="link-btn"><i class="ri-map-pin-line"></i> Eventos</a>
+            <a href="https://forms.gle/HNcKatK3vEgxPXG18" class="link-btn" target="_blank">Moto casal</a>
+            <a href="https://forms.gle/uYRovyVAkXwJZxtx6" class="link-btn" target="_blank">Sede/m. clube</a>
+            <a href="https://forms.gle/yUuW1dp9NPwqBTBL9" class="link-btn" target="_blank">posto amigo</a>
+            <a href="https://forms.gle/UKqsh3rFhLBDFE288" class="link-btn" target="_blank">oficina parceira</a>
+            <a href="https://forms.gle/UKqsh3rFhLBDFE288" class="link-btn" target="_blank">borracharia parceira</a>
+            <a href="https://forms.gle/WsCRQwKvcDEyj7hw8" class="link-btn" target="_blank">banda de rock</a>
+            <a href="https://forms.gle/WL7wrdkrMQu52QX8A" class="link-btn" target="_blank">passeios</a>
+        </div>
+    </section>
+
+    <!-- Sobre Nós -->
+    <section id="sobre" class="sobre-nos">
+        <div class="container">
+            <h2>Sobre Nós</h2>
+            <p>
+                A <strong>"M"</strong> nasceu simples, mas com ousadia.
+                Não queremos ser apenas mais uma iniciativa no motociclismo – queremos ser o ponto de encontro de todos
+                que
+                vivem sobre duas rodas.
+            </p>
+            <p>
+                Acreditamos que o motociclismo é mais do que estrada: é união, amizade e coragem. É a força que move o
+                motociclista rumo ao horizonte, sem medo, com a certeza de que cada quilômetro traz uma nova história.
+            </p>
+            <p>
+                Com humildade, reunimos cada moto casal, cada clube, cada parceiro de estrada e cada evento. Mas com a
+                coragem que define o motociclista, assumimos o compromisso de ser a maior plataforma de motociclismo do
+                planeta, feita por motociclistas e para motociclistas.
+            </p>
+            <p>
+                A <strong>"M"</strong> é a bandeira que todos carregamos no peito: <span class="highlight">união,
+                    liberdade
+                    e paixão</span> sobre duas rodas.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contato" class="footer">
+        <div class="footer-container">
+            <div class="footer-info">
+                <h3>Contato</h3>
+                <p>📍 Endereço: Estrada da Liberdade, Km 22</p>
+                <p>📧 Email: contato@mplataforma.com</p>
+                <p>📞 Telefone: (31) 99999-9999</p>
+            </div>
+
+            <div class="footer-social">
+                <h3>Siga-nos</h3>
+                <a href="#" target="_blank" aria-label="Facebook"><i class="ri-facebook-circle-fill"></i></a>
+                <a href="#" target="_blank" aria-label="Instagram"><i class="ri-instagram-fill"></i></a>
+                <a href="#" target="_blank" aria-label="WhatsApp"><i class="ri-whatsapp-fill"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 M Plataforma Motociclista — Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script>
+        window.addEventListener("scroll", () => {
+            document.querySelector("nav").classList.toggle("scrolled", window.scrollY > 50);
+        });
+
+        const faders = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        });
+        faders.forEach(f => observer.observe(f));
+
+
+        const menuBtn = document.getElementById('menu-btn');
+        const navLinks = document.getElementById('nav-links');
+        const menuBtnIcon = menuBtn.querySelector('i');
+
+        // Abre/fecha o menu ao clicar no botão
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            menuBtnIcon.className = isOpen ? 'ri-close-line' : 'ri-menu-line';
+        });
+
+        // Fecha o menu ao clicar em um link
+        const links = navLinks.querySelectorAll('a');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                menuBtnIcon.className = 'ri-menu-line'; // volta pro ícone do menu
+            });
+        });
+
+
+    </script>
+    <!-- PapaParse (parser CSV robusto) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRC7AUh6YhiNZL3voXtVm_DvlOm8CLdggqieudGn5ixzADFp5vTftHlwop9C1WFy7bXV9tDh7fZUOK5/pub?gid=160486505&single=true&output=csv";
+
+            // função para escapar HTML (segurança)
+            function escapeHtml(text) {
+                if (!text && text !== 0) return "";
+                const div = document.createElement("div");
+                div.textContent = String(text);
+                return div.innerHTML;
+            }
+
+            Papa.parse(csvUrl, {
+                download: true,
+                header: true,
+                skipEmptyLines: true,
+
+                // Detecta automaticamente onde está o cabeçalho válido
+                beforeFirstChunk: function (chunk) {
+                    const linhas = chunk.split(/\r\n|\r|\n/);
+                    let inicio = 0;
+                    for (let i = 0; i < linhas.length; i++) {
+                        if (/NOME|EVENTO/i.test(linhas[i])) { // procura colunas conhecidas
+                            inicio = i;
+                            break;
+                        }
+                    }
+                    return linhas.slice(inicio).join("\n");
+                },
+
+                complete: function (results) {
+                    const rows = results.data;
+                    const container = document.getElementById("lista-eventos");
+                    container.innerHTML = "";
+
+                    if (!rows || rows.length === 0) {
+                        container.innerHTML = "<p>Nenhum evento encontrado.</p>";
+                        return;
+                    }
+
+                    // normalizar cabeçalhos
+                    const normalize = k => k ? k.replace(/\s+/g, " ").trim().toUpperCase() : "";
+                    const headerMap = {};
+                    (results.meta.fields || []).forEach(originalKey => {
+                        headerMap[normalize(originalKey)] = originalKey;
+                    });
+
+                    // listas de chaves possíveis
+                    const nameKeys = ["NOME DO EVENTO", "NOME", "EVENTO"];
+                    const localKeys = ["LOCAL", "LOCALIDADE", "ENDEREÇO"];
+                    const dataInicioKeys = ["DATA DO INICIO", "DATA DE INICIO", "DATA", "DATA_INICIO"];
+                    const dataFimKeys = ["DATA DO ENCERRAMENTO", "DATA DO FIM", "DATA_FIM"];
+
+
+                    function getField(row, candidates) {
+                        for (let k of candidates) {
+                            const nk = normalize(k);
+                            const originalKey = headerMap[nk];
+                            if (originalKey && row[originalKey] !== undefined && String(row[originalKey]).trim() !== "") {
+                                return String(row[originalKey]).trim();
+                            }
+                        }
+                        return "";
+                    }
+
+                    // montar cards
+                    rows.forEach(row => {
+                        const nome = getField(row, nameKeys) || "Sem título";
+                        const local = getField(row, localKeys) || "Não informado";
+                        const dataInicio = getField(row, dataInicioKeys);
+                        const dataFim = getField(row, dataFimKeys);
+
+                        let dataDisplay = "A definir";
+                        if (dataInicio && dataFim) dataDisplay = `${dataInicio} — ${dataFim}`;
+                        else if (dataInicio) dataDisplay = dataInicio;
+                        else if (dataFim) dataDisplay = dataFim;
+
+                        const html = `
+                <article class="evento">
+                  <h3>${escapeHtml(nome)}</h3>
+                  <div class="meta">
+                    <p><strong>📍 Local:</strong> ${escapeHtml(local)}</p>
+                    <p><strong>📅 Data:</strong> ${escapeHtml(dataDisplay)}</p>
+                  </div>
+            
+                </article>
+              `;
+                        container.insertAdjacentHTML('beforeend', html);
+                    });
+                },
+
+                error: function (err) {
+                    console.error("Erro ao carregar CSV:", err);
+                    document.getElementById("lista-eventos").innerHTML = "<p>Não foi possível carregar os eventos no momento.</p>";
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

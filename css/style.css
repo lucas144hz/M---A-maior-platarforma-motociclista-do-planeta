@@ -1,0 +1,376 @@
+ @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+ :root {
+     --primary-color: #e63946;
+     /* vermelho sangue */
+     --secondary-color: #9ca3af;
+     /* cinza metálico */
+     --text-light: #f5f5f5;
+     /* branco gelo */
+     --white: #ffffff;
+     --black: #0d0d0d;
+     /* fundo biker */
+     --max-width: 1200px;
+ }
+
+ html {
+     scroll-behavior: smooth;
+ }
+
+ * {
+     padding: 0;
+     margin: 0;
+     box-sizing: border-box;
+ }
+
+ a {
+     text-decoration: none;
+     transition: 0.3s;
+ }
+
+ ul {
+     list-style: none;
+ }
+
+ body {
+     font-family: 'Inter', sans-serif;
+     color: var(--text-light);
+     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+         url("assets/fundo estilo motociclista cores escuras.jpg");
+     background-size: cover;
+     background-position: center;
+ }
+
+ .eventos {
+     padding: 50px 20px;
+     background: #0f0f0f;
+     color: #fff;
+     text-align: center;
+ }
+
+ .eventos__lista {
+     display: flex;
+     gap: 18px;
+     margin: 30px auto;
+     padding: 10px;
+     overflow-x: auto;
+     scroll-snap-type: x mandatory;
+     -webkit-overflow-scrolling: touch;
+ }
+
+ .evento {
+     flex: 0 0 300px;
+     background: #191919;
+     padding: 20px;
+     border-radius: 10px;
+     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+     scroll-snap-align: start;
+ }
+
+ .evento h3 {
+     color: #ff6f61;
+     margin-bottom: 10px;
+     font-size: 1.15rem;
+     text-transform: uppercase;
+ }
+
+ .evento .meta p {
+     margin: 6px 0;
+     color: #ddd;
+ }
+
+ .evento .detalhes {
+     margin-top: 10px;
+     color: #cfcfcf;
+     font-size: 0.95rem;
+     white-space: pre-wrap;
+ }
+
+ .btn {
+     display: inline-block;
+     padding: 12px 20px;
+     background: var(--primary-color);
+     color: var(--white);
+     border-radius: 6px;
+     text-decoration: none;
+     transition: background 0.3s;
+ }
+
+ .btn:hover {
+     background: #c1121f;
+ }
+
+ nav.scrolled .nav__logo img {
+     max-width: 28px;
+     transition: 0.3s;
+ }
+
+ nav {
+     height: 2rem;
+     position: fixed;
+     isolation: isolate;
+     width: 100%;
+     max-width: var(--max-width);
+     margin-inline: auto;
+     z-index: 1000;
+ }
+
+ .nav__header {
+     height: 4rem;
+     display: flex;
+     align-items: center;
+     padding: 1rem;
+     width: 100%;
+     justify-content: space-between;
+ }
+
+ .nav__logo img {
+     max-width: 36px;
+     display: flex;
+     filter: grayscale(100%) brightness(1.2);
+ }
+
+ .nav__menu_btn {
+     font-size: 1.5rem;
+     color: var(--white);
+     cursor: pointer;
+ }
+
+ .nav__links {
+     position: absolute;
+     display: flex;
+     left: 0;
+     width: 100%;
+     align-items: center;
+     justify-content: center;
+     flex-direction: column;
+     gap: 2rem;
+     padding: 2rem;
+     background-color: var(--black);
+     transition: 0.5s;
+     z-index: -1;
+     transform: translateY(-1000%);
+     height: 100vh;
+     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+     backdrop-filter: blur(8.5px);
+     -webkit-backdrop-filter: blur(8.5px);
+ }
+
+ .nav__links.open {
+     transform: translateY(0);
+
+ }
+
+ .nav__links a {
+     font-size: 1.2rem;
+     color: var(--white);
+     text-transform: uppercase;
+     letter-spacing: 1px;
+ }
+
+ .nav__links a:hover {
+     color: var(--secondary-color);
+ }
+
+ /* MAPA */
+ .map-background {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100vw;
+     height: 100vh;
+     z-index: -1;
+ }
+
+ .map-background iframe {
+     width: 100%;
+     height: 100%;
+     border: none;
+ }
+
+ /* overlay só no mapa */
+ .map-overlay {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: rgb(0, 0, 0);
+     pointer-events: none;
+ }
+
+ .sobre-nos {
+     padding: 60px 20px;
+     background: url("https://www.transparenttextures.com/patterns/metal.png"), #111;
+     background-size: cover;
+     color: #fff;
+     text-align: center;
+ }
+
+ .sobre-nos h2 {
+     font-size: 2.5rem;
+     margin-bottom: 30px;
+     text-transform: uppercase;
+     letter-spacing: 2px;
+     text-shadow: 0 0 10px #ff6f61;
+ }
+
+ .sobre-nos p {
+     max-width: 900px;
+     margin: 0 auto 20px auto;
+     font-size: 1.2rem;
+     line-height: 1.7;
+     color: #ddd;
+ }
+
+ .sobre-nos .highlight {
+     color: #ff6f61;
+     font-weight: bold;
+     text-shadow: 0 0 8px #ff0000;
+ }
+
+ .footer {
+     position: relative;
+     overflow: hidden;
+     backdrop-filter: blur(8.5px);
+     -webkit-backdrop-filter: blur(8.5px);
+     background: #0d0d0d url("https://www.transparenttextures.com/patterns/metal.png");
+     background-size: cover;
+     color: #ccc;
+     padding: 50px 20px 20px;
+     text-align: center;
+ }
+
+ .footer-container {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+     gap: 30px;
+     max-width: 1000px;
+     margin: 0 auto 30px auto;
+ }
+
+ .footer h3 {
+     color: #fff;
+     margin-bottom: 15px;
+     font-size: 1.3rem;
+     text-transform: uppercase;
+     letter-spacing: 1px;
+     text-shadow: 0 0 6px #ff6f61;
+ }
+
+ .footer-info p,
+ .footer-social a {
+     margin: 8px 0;
+     font-size: 1rem;
+     color: #ccc;
+     transition: color 0.3s;
+ }
+
+ .footer-social a:hover {
+     color: #ff6f61;
+ }
+
+ .footer-bottom {
+     border-top: 1px solid rgba(255, 255, 255, 0.1);
+     padding-top: 15px;
+     font-size: 0.9rem;
+     color: #aaa;
+ }
+
+ .links-section {
+     text-align: center;
+     padding: 40px 20px;
+     background: #111;
+ }
+
+ .links-section h2 {
+     color: #fff;
+     margin-bottom: 20px;
+     font-size: 2rem;
+ }
+
+ .links-buttons {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+     gap: 15px;
+     max-width: 900px;
+     margin: 0 auto;
+ }
+
+ .link-btn {
+     padding: 15px;
+     background: linear-gradient(90deg, #ff6f61, #fcb045);
+     color: #fff;
+     font-weight: bold;
+     border-radius: 10px;
+     text-decoration: none;
+     text-transform: uppercase;
+     text-align: center;
+     transition: transform 0.3s ease, background 0.3s ease;
+ }
+
+ .link-btn:hover {
+     transform: scale(1.05);
+     background: linear-gradient(90deg, #fcb045, #ff6f61);
+ }
+
+ .fade-in {
+     opacity: 0;
+     transform: translateY(20px);
+     transition: all 0.6s ease-in-out;
+ }
+
+ .fade-in.visible {
+     opacity: 1;
+     transform: translateY(0);
+ }
+
+ .map-background::after {
+     content: "";
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: rgba(0, 0, 0, 0.777);
+     /* escurece */
+     pointer-events: none;
+     /* não bloqueia cliques no mapa */
+ }
+
+ @media (width > 768px) {
+     .nav__links {
+         position: static;
+         flex-direction: row;
+         gap: 1.5rem;
+         background-color: transparent;
+         transform: translateY(0);
+         padding: 0;
+         height: 100%;
+         z-index: 0;
+         justify-content: flex-end;
+     }
+
+     nav {
+         position: static;
+         padding: 2rem 1rem;
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         gap: 2rem;
+     }
+
+     .nav__header {
+         padding: 0;
+         height: auto;
+         background-color: transparent;
+     }
+
+     .nav__logo span {
+         display: flex;
+     }
+
+     .nav__menu_btn {
+         display: none;
+     }
+ }
