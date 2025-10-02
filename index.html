@@ -4,15 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Motocasal — Conectando motociclistas e anfitriões</title>
+    <title>"M" - A maior comunidade motociclista do planeta</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <meta name="color-scheme" content="dark light">
     <meta name="description"
-        content="Motocasal — A maior plataforma que conecta motociclistas e anfitriões pelo Brasil. União, liberdade e paixão sobre duas rodas.">
+        content=" M - A maior comunidade que conecta motociclistas e anfitriões pelo Brasil. União, liberdade e paixão sobre duas rodas.">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
     <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 
 <body>
@@ -203,7 +205,7 @@ c36 83 86 165 113 182 30 20 28 36 -8 67 -80 67 -267 75 -318 14 -10 -13 -9
             </div>
         </div>
         <ul class="nav__links" id="nav-links">
-            <li><a href="#cadastro">Conecte-se</a></li>
+            <li><a href="#cadastro">Cadastre-se</a></li>
             <li><a href="#sobre">Sobre nós</a></li>
             <li><a href="#contato">Contato</a></li>
         </ul>
@@ -217,7 +219,7 @@ c36 83 86 165 113 182 30 20 28 36 -8 67 -80 67 -267 75 -318 14 -10 -13 -9
                 <div>
                     <h1 class="text-3xl md:text-6xl font-black leading-tight">
                         "M" - A maior comunidade motociclista
-                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-rose-200">do
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r" style="color: transparent; background-image: linear-gradient(135deg, #ff6f61, #fcb045);">do
                             planeta</span>
                     </h1>
                     <p class="mt-5 text-white/80 text-lg">
@@ -225,26 +227,29 @@ c36 83 86 165 113 182 30 20 28 36 -8 67 -80 67 -267 75 -318 14 -10 -13 -9
                         amizades a cada parada.
                     </p>
                     <div class="mt-8 flex flex-wrap gap-3">
+
+
                         <a href="#cadastro"
                             class="px-5 py-3 rounded-xl bg-white text-black font-semibold hover:bg-rose-50 hover:text-rose-700 transition soft-shadow">Cadastre-se</a>
-                        <a href="#sobre"><button id="btnAbrirCadastro2"
-                                class="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 transition soft-shadow">Quem
-                                somos</button></a>
-                    </div>
 
-                </div>
-                <div class="relative">
-                    <div class="rounded-2xl bg-white/5 border border-white/10 p-5 md:p-6 soft-shadow">
-                        <div class="flex items-center justify-between mb-3">
-                            <p class="font-semibold">Prévia do mapa</p>
-                            <span class="text-xs px-2 py-1 rounded bg-white/10 size-450">Demo</span>
+
+
+                        <a href="#sobre"
+                            class="px-5 py-3 rounded-xl bg-white text-black font-semibold hover:bg-rose-50 hover:text-rose-700 transition soft-shadow">Quem
+                            somos</a>
+                    <!-- Botão -->
+                    <button class="btn-form" id="openFormBtn">Solicitar acesso ao mapa</button>
+
+                    <!-- Modal -->
+                    
+                    <div id="formModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close" id="closeFormBtn">&times;</span>
+                            <iframe title="Solicitação de acesso ao mapa"
+                                src="https://docs.google.com/forms/d/e/1FAIpQLScUNVnQ6OoLQ_hoi12G_GNVgoyTl_iph7JH-Yy0Om3ZTs3Qew/viewform?embedded=true">
+                                Carregando…
+                            </iframe>
                         </div>
-                        <!-- Mini mapa ilustrativo -->
-                        <iframe id="mapaFrame" loading="lazy" class="w-full h-80 md:h-72 rounded-lg"
-                            src="https://www.google.com/maps/d/embed?mid=1BLBG6uQA4RyFd5z7XM6Yc9p_uzk0wmY&ehbc=2E312F"
-                            title="Mapa ilustrativo">
-                        </iframe>
-
                     </div>
                 </div>
             </div>
@@ -266,9 +271,6 @@ c36 83 86 165 113 182 30 20 28 36 -8 67 -80 67 -267 75 -318 14 -10 -13 -9
 
             <div id="lista-eventos" class="eventos__lista"></div>
 
-            <a href="#mapa" class="btn">
-                <i class="ri-map-2-line"></i> Ver mapa
-            </a>
         </div>
     </section>
 
@@ -277,14 +279,22 @@ c36 83 86 165 113 182 30 20 28 36 -8 67 -80 67 -267 75 -318 14 -10 -13 -9
     <section class="links-section" id="cadastro">
         <h2>CADASTRE-SE</h2>
         <div class="links-buttons">
-            <a href="https://forms.gle/GVR4P4TDUNDtKwx96" class="link-btn"><i class="ri-map-pin-line"></i> Eventos</a>
-            <a href="https://forms.gle/HNcKatK3vEgxPXG18" class="link-btn" target="_blank">Moto casal</a>
-            <a href="https://forms.gle/uYRovyVAkXwJZxtx6" class="link-btn" target="_blank">Sede/m. clube</a>
-            <a href="https://forms.gle/yUuW1dp9NPwqBTBL9" class="link-btn" target="_blank">posto amigo</a>
-            <a href="https://forms.gle/UKqsh3rFhLBDFE288" class="link-btn" target="_blank">oficina parceira</a>
-            <a href="https://forms.gle/UKqsh3rFhLBDFE288" class="link-btn" target="_blank">borracharia parceira</a>
-            <a href="https://forms.gle/WsCRQwKvcDEyj7hw8" class="link-btn" target="_blank">banda de rock</a>
-            <a href="https://forms.gle/WL7wrdkrMQu52QX8A" class="link-btn" target="_blank">passeios</a>
+            <a href="https://forms.gle/GVR4P4TDUNDtKwx96" class="link-btn" target="_blank"><i
+                    class="fas fa-calendar-alt"></i> Eventos</a>
+            <a href="https://forms.gle/HNcKatK3vEgxPXG18" class="link-btn" target="_blank"><i
+                    class="fas fa-motorcycle"></i> Moto casal</a>
+            <a href="https://forms.gle/uYRovyVAkXwJZxtx6" class="link-btn" target="_blank"><i
+                    class="fas fa-building"></i> Sede/m. clube</a>
+            <a href="https://forms.gle/yUuW1dp9NPwqBTBL9" class="link-btn" target="_blank"><i
+                    class="fas fa-gas-pump"></i> posto amigo</a>
+            <a href="https://forms.gle/UKqsh3rFhLBDFE288" class="link-btn" target="_blank"><i class="fas fa-tools"></i>
+                oficina parceira</a>
+            <a href="https://forms.gle/UKqsh3rFhLBDFE288" class="link-btn" target="_blank"><i
+                    class="fas fa-wrench"></i>borracharia parceira</a>
+            <a href="https://forms.gle/WsCRQwKvcDEyj7hw8" class="link-btn" target="_blank"><i
+                    class="fas fa-music"></i>banda de rock</a>
+            <a href="https://forms.gle/WL7wrdkrMQu52QX8A" class="link-btn" target="_blank"><i
+                    class="fas fa-route"></i>passeios</a>
         </div>
     </section>
 
@@ -325,6 +335,7 @@ c36 83 86 165 113 182 30 20 28 36 -8 67 -80 67 -267 75 -318 14 -10 -13 -9
                 <p>📍 Endereço: Av. José Pereira de Souza, N° 392, Vale verde, Ipaba-MG</p>
                 <p>📧 Email: iv.contacto.pt@gmail.com</p>
                 <p>📞 Telefone: (31) 99870 4160</p>
+                <p>📞 Telefone: (31) 99869 7442</p>
             </div>
 
             <div class="footer-social">
@@ -336,177 +347,17 @@ c36 83 86 165 113 182 30 20 28 36 -8 67 -80 67 -267 75 -318 14 -10 -13 -9
         </div>
 
         <div class="footer-bottom">
-            <p>© 2025 M Plataforma Motociclista — Todos os direitos reservados</p>
+            <p>© 2025 "M" Plataforma Motociclista — Todos os direitos reservados</p>
         </div>
     </footer>
 
 
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
 
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
-    <script>
-        window.addEventListener("scroll", () => {
-            document.querySelector("nav").classList.toggle("scrolled", window.scrollY > 50);
-        });
-
-        const faders = document.querySelectorAll('.fade-in');
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
-            });
-        });
-        faders.forEach(f => observer.observe(f));
-
-
-        const menuBtn = document.getElementById('menu-btn');
-        const navLinks = document.getElementById('nav-links');
-        const menuBtnIcon = menuBtn.querySelector('i');
-
-        // Abre/fecha o menu ao clicar no botão
-        menuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('open');
-            const isOpen = navLinks.classList.contains('open');
-            menuBtnIcon.className = isOpen ? 'ri-close-line' : 'ri-menu-line';
-        });
-
-        // Fecha o menu ao clicar em um link
-        const links = navLinks.querySelectorAll('a');
-        links.forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('open');
-                menuBtnIcon.className = 'ri-menu-line'; // volta pro ícone do menu
-            });
-        });
-
-
-    </script>
-    
-    <!-- PapaParse (parser CSV robusto) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRC7AUh6YhiNZL3voXtVm_DvlOm8CLdggqieudGn5ixzADFp5vTftHlwop9C1WFy7bXV9tDh7fZUOK5/pub?gid=160486505&single=true&output=csv";
-            let eventos = [];
-
-            const normalize = k => k ? k.replace(/\s+/g, " ").trim().toUpperCase() : "";
-            const nameKeys = ["NOME DO EVENTO", "NOME", "EVENTO"];
-            const localKeys = ["LOCAL", "LOCALIDADE", "ENDEREÇO"];
-            const dataInicioKeys = ["DATA DO INICIO", "DATA DE INICIO", "DATA", "DATA_INICIO"];
-            const dataFimKeys = ["DATA DO ENCERRAMENTO", "DATA DO FIM", "DATA_FIM"];
-
-            function getField(row, candidates, headerMap) {
-                for (let k of candidates) {
-                    const nk = normalize(k);
-                    const originalKey = headerMap[nk];
-                    if (originalKey && row[originalKey] !== undefined && String(row[originalKey]).trim() !== "") {
-                        return String(row[originalKey]).trim();
-                    }
-                }
-                return "";
-            }
-
-            function renderEventos(lista) {
-                const container = document.getElementById("lista-eventos");
-                container.innerHTML = "";
-
-                if (!lista.length) {
-                    container.innerHTML = "<p>Nenhum evento encontrado.</p>";
-                    return;
-                }
-
-                lista.forEach(e => {
-                    let dataDisplay = "A definir";
-                    if (e.dataInicio && e.dataFim) dataDisplay = `${e.dataInicio} — ${e.dataFim}`;
-                    else if (e.dataInicio) dataDisplay = e.dataInicio;
-                    else if (e.dataFim) dataDisplay = e.dataFim;
-
-                    const rotaUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(e.local)}`;
-
-
-                    const card = `
-    <article class="evento">
-        <h3>${e.nome}</h3>
-        <div class="meta">
-            <p><strong>📍 Local:</strong> ${e.local}</p>
-            <p><strong>📅 Data:</strong> ${dataDisplay}</p>
-        </div>
-        <a href="${rotaUrl}" target="_blank" class="btnAbrirRota">
-            <i class="ri-road-map-line"></i> Traçar rota
-        </a>
-    </article>
-`;
-
-                    container.insertAdjacentHTML("beforeend", card);
-                });
-
-                // adicionar evento nos botões criados
-                document.querySelectorAll(".btnAbrirMapa").forEach(btn => {
-                    btn.addEventListener("click", function () {
-                        const url = this.getAttribute("data-url");
-                        document.getElementById("mapaFrame").src = url;
-                        // opcional: scroll suave até o mapa
-                        document.getElementById("mapaFrame").scrollIntoView({ behavior: "smooth" });
-                    });
-                });
-            }
-
-
-            Papa.parse(csvUrl, {
-                download: true,
-                header: true,
-                skipEmptyLines: true,
-                complete: function (results) {
-                    const rows = results.data;
-                    const headerMap = {};
-                    (results.meta.fields || []).forEach(originalKey => {
-                        headerMap[normalize(originalKey)] = originalKey;
-                    });
-
-                    eventos = rows.map(row => ({
-                        nome: getField(row, nameKeys, headerMap) || "Sem título",
-                        local: getField(row, localKeys, headerMap) || "Não informado",
-                        dataInicio: getField(row, dataInicioKeys, headerMap),
-                        dataFim: getField(row, dataFimKeys, headerMap)
-                    }));
-
-                    const hoje = new Date();
-                    const futuros = eventos.filter(e => {
-                        if (!e.dataInicio) return false;
-                        const inicio = new Date(e.dataInicio.split("/").reverse().join("-"));
-                        const fim = e.dataFim ? new Date(e.dataFim.split("/").reverse().join("-")) : inicio;
-                        return fim >= hoje;
-                    });
-
-                    renderEventos(futuros);
-                    eventos = futuros;
-                }
-            });
-
-            document.getElementById("filtroData").addEventListener("change", function () {
-                const dataSelecionada = this.value;
-                if (!dataSelecionada) {
-                    renderEventos(eventos);
-                    return;
-                }
-
-                const filtrados = eventos.filter(e => {
-                    if (!e.dataInicio) return false;
-                    const dataPlanilha = new Date(e.dataInicio.split("/").reverse().join("-"));
-                    const dataInput = new Date(dataSelecionada);
-                    return (
-                        dataPlanilha.getFullYear() === dataInput.getFullYear() &&
-                        dataPlanilha.getMonth() === dataInput.getMonth() &&
-                        dataPlanilha.getDate() === dataInput.getDate()
-                    );
-                });
-
-                renderEventos(filtrados);
-            });
-        });
-    </script>
-
-
+<script src="js/navbar.js"></script>
+<script src="js/eventos.js"></script>
+<script src="js/modal.js"></script>
 
 
 </body>
