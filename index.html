@@ -22,7 +22,7 @@
 <body>
 
     <nav>
-        <div class="nav__header">
+        <div class="nav__header wrapper">
             <div class="nav__logo">
                 <a href="#">
                     <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
@@ -210,16 +210,19 @@ c36 83 86 165 113 182 30 20 28 36 -8 67 -80 67 -267 75 -318 14 -10 -13 -9
             <li><a href="#cadastro">Cadastre-se</a></li>
             <li><a href="#sobre">Sobre nós</a></li>
             <li><a href="#contato">Contato</a></li>
+            <!-- Botão -->
+            <button class="btn-form">Solicitar acesso ao mapa</button>
         </ul>
     </nav>
 
 
     <!-- Hero -->
-    <section class="relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-            <div class="grid md:grid-cols-2 gap-10 items-center">
+    <section class="relative overflow-hidden wrapper" id="home">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+
+            <div class="hero">
                 <div>
-                    <h1 class="text-3xl md:text-6xl font-black leading-tight">
+                    <h1 class="text-5xl md:text-5xl font-black leading-tight">
                         "M" - A maior comunidade motociclista
                         <span class="bg-clip-text text-transparent bg-gradient-to-r"
                             style="color: transparent; background-image: linear-gradient(135deg, #ff6f61, #fcb045);">do
@@ -229,7 +232,7 @@ c36 83 86 165 113 182 30 20 28 36 -8 67 -80 67 -267 75 -318 14 -10 -13 -9
                         A "M" conecta os amantes de duas rodas ao longo da rota, segurança conforto e
                         amizades a cada parada.
                     </p>
-                    <div class="mt-8 flex flex-wrap gap-3">
+                    <div class="mt-8 flex flex-wrap gap-3  items-center justify-center">
 
 
                         <a href="#cadastro"
@@ -240,11 +243,11 @@ c36 83 86 165 113 182 30 20 28 36 -8 67 -80 67 -267 75 -318 14 -10 -13 -9
                         <a href="#sobre"
                             class="px-5 py-3 rounded-xl bg-white text-black font-semibold hover:bg-rose-50 hover:text-rose-700 transition soft-shadow">Quem
                             somos</a>
-                        <!-- Botão -->
+
+
                         <button class="btn-form" id="openFormBtn">Solicitar acesso ao mapa</button>
 
                         <!-- Modal -->
-
                         <div id="formModal" class="modal">
                             <div class="modal-content">
                                 <span class="close" id="closeFormBtn">&times;</span>
@@ -253,10 +256,25 @@ c36 83 86 165 113 182 30 20 28 36 -8 67 -80 67 -267 75 -318 14 -10 -13 -9
                                     Carregando…
                                 </iframe>
                             </div>
+
+                            <div class="relative">
+                                <div class="rounded-2xl bg-white/5 border border-white/10 p-5 md:p-6 soft-shadow">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <p class="font-semibold">Prévia do mapa</p>
+                                        <span class="text-xs px-2 py-1 rounded bg-white/10 size-450">Demo</span>
+                                    </div>
+                                    <!-- Mini mapa ilustrativo -->
+                                    <iframe id="mapaFrame" loading="lazy" class="w-full h-80 md:h-72 rounded-lg"
+                                        src="https://www.google.com/maps/d/embed?mid=1BLBG6uQA4RyFd5z7XM6Yc9p_uzk0wmY&ehbc=2E312F"
+                                        title="Mapa ilustrativo">
+                                    </iframe>
+                            
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
-            </div>
     </section>
 
 
@@ -360,8 +378,6 @@ c36 83 86 165 113 182 30 20 28 36 -8 67 -80 67 -267 75 -318 14 -10 -13 -9
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
-
-    // Navbar scroll
     <script>
         window.addEventListener("scroll", () => {
             document.querySelector("nav").classList.toggle("scrolled", window.scrollY > 50);
@@ -502,7 +518,9 @@ c36 83 86 165 113 182 30 20 28 36 -8 67 -80 67 -267 75 -318 14 -10 -13 -9
         closeBtn.addEventListener("click", () => modal.style.display = "none");
         window.addEventListener("click", e => {
             if (e.target === modal) modal.style.display = "none";
-        });</script>
+        });
+    </script>
+
 </body>
 
 </html>
