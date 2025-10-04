@@ -218,7 +218,7 @@ c36 83 86 165 113 182 30 20 28 36 -8 67 -80 67 -267 75 -318 14 -10 -13 -9
     <!-- Hero -->
     <section class="relative overflow-hidden bg-black text-white" id="home">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 grid md:grid-cols-2 gap-10 items-center">
-    
+
             <!-- 🏍️ Lado esquerdo - Texto -->
             <div class="text-center md:text-left">
                 <h1 class="text-5xl md:text-6xl font-black leading-tight">
@@ -227,50 +227,50 @@ c36 83 86 165 113 182 30 20 28 36 -8 67 -80 67 -267 75 -318 14 -10 -13 -9
                         do planeta
                     </span>
                 </h1>
-    
+
                 <p class="mt-5 text-white/80 text-lg">
                     A "M" conecta os amantes de duas rodas ao longo da rota, com segurança, conforto e
                     amizades a cada parada.
                 </p>
-    
+
                 <div class="mt-8 flex flex-wrap gap-3 items-center justify-center md:justify-start">
                     <a href="#cadastro"
                         class="px-5 py-3 rounded-xl bg-white text-black font-semibold hover:bg-rose-50 hover:text-rose-700 transition soft-shadow">
                         Cadastre-se
                     </a>
-    
+
                     <a href="#sobre"
                         class="px-5 py-3 rounded-xl bg-white text-black font-semibold hover:bg-rose-50 hover:text-rose-700 transition soft-shadow">
                         Quem somos
                     </a>
-    
+
                     <button id="openFormBtn"
                         class="px-5 py-3 rounded-xl bg-gradient-to-r from-rose-500 to-amber-400 text-black font-semibold hover:scale-105 transition soft-shadow">
                         Solicitar acesso ao mapa
                     </button>
                 </div>
             </div>
-    
+
             <!-- 🗺️ Lado direito - Mapa -->
             <div class="rounded-2xl bg-white/5 border border-white/10 p-4 md:p-6 soft-shadow">
                 <div class="flex items-center justify-between mb-3">
                     <p class="font-semibold">Prévia do mapa</p>
                     <span class="text-xs px-2 py-1 rounded bg-white/10">Demo</span>
                 </div>
-    
+
                 <iframe id="mapaFrame" loading="lazy" class="w-full h-72 md:h-[420px] rounded-lg"
                     src="https://www.google.com/maps/d/embed?mid=1BLBG6uQA4RyFd5z7XM6Yc9p_uzk0wmY&ehbc=2E312F"
                     title="Mapa ilustrativo">
                 </iframe>
             </div>
         </div>
-    
+
         <!-- Modal do formulário -->
         <div id="formModal" class="modal hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50">
             <div class="modal-content bg-white text-black rounded-2xl p-8 max-w-md w-[90%] relative shadow-2xl">
                 <button id="closeFormBtn"
                     class="absolute top-4 right-4 text-gray-500 hover:text-black text-xl font-bold">&times;</button>
-    
+
                 <iframe title="Solicitação de acesso ao mapa"
                     src="https://docs.google.com/forms/d/e/1FAIpQLScUNVnQ6OoLQ_hoi12G_GNVgoyTl_iph7JH-Yy0Om3ZTs3Qew/viewform?embedded=true"
                     class="w-full h-[600px] rounded-lg border border-gray-200">
@@ -383,18 +383,30 @@ c36 83 86 165 113 182 30 20 28 36 -8 67 -80 67 -267 75 -318 14 -10 -13 -9
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
 
-<script>
-    const openFormBtn = document.getElementById('openFormBtn');
-    const closeFormBtn = document.getElementById('closeFormBtn');
-    const formModal = document.getElementById('formModal');
 
-    openFormBtn.addEventListener('click', () => formModal.classList.remove('hidden'));
-    closeFormBtn.addEventListener('click', () => formModal.classList.add('hidden'));
+    <script>
+        window.addEventListener("scroll", () => {
+            const nav = document.querySelector("nav");
+            if (window.scrollY > 50) {
+                nav.classList.add("scrolled");
+            } else {
+                nav.classList.remove("scrolled");
+            }
+        });
+    </script>
 
-    window.addEventListener('click', (e) => {
-        if (e.target === formModal) formModal.classList.add('hidden');
-    });
-</script>
+    <script>
+        const openFormBtn = document.getElementById('openFormBtn');
+        const closeFormBtn = document.getElementById('closeFormBtn');
+        const formModal = document.getElementById('formModal');
+
+        openFormBtn.addEventListener('click', () => formModal.classList.remove('hidden'));
+        closeFormBtn.addEventListener('click', () => formModal.classList.add('hidden'));
+
+        window.addEventListener('click', (e) => {
+            if (e.target === formModal) formModal.classList.add('hidden');
+        });
+    </script>
 
 
 
