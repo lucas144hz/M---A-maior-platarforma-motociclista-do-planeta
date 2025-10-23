@@ -431,7 +431,8 @@ c36 83 86 165 113 182 30 20 28 36 -8 67 -80 67 -267 75 -318 14 -10 -13 -9
         });
     </script>
 
-    <script>document.addEventListener("DOMContentLoaded", () => {
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
             const csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRC7AUh6YhiNZL3voXtVm_DvlOm8CLdggqieudGn5ixzADFp5vTftHlwop9C1WFy7bXV9tDh7fZUOK5/pub?gid=160486505&single=true&output=csv";
             let eventos = [];
 
@@ -470,17 +471,17 @@ c36 83 86 165 113 182 30 20 28 36 -8 67 -80 67 -267 75 -318 14 -10 -13 -9
                     const rotaUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(e.local)}`;
 
                     const card = `
-                <article class="evento">
-                    <h3>${e.nome}</h3>
-                    <div class="meta">
-                        <p><strong>📍 Local:</strong> ${e.local}</p>
-                        <p><strong>📅 Data:</strong> ${dataDisplay}</p>
-                    </div>
-                    <a href="${rotaUrl}" target="_blank" class="btnAbrirRota">
-                        <i class="ri-road-map-line"></i> Traçar rota
-                    </a>
-                </article>
-            `;
+                    <article class="evento">
+                        <h3>${e.nome}</h3>
+                        <div class="meta">
+                            <p><strong>📍 Local:</strong> ${e.local}</p>
+                            <p><strong>📅 Data:</strong> ${dataDisplay}</p>
+                        </div>
+                        <a href="${rotaUrl}" target="_blank" class="btnAbrirRota">
+                            <i class="ri-road-map-line"></i> Traçar rota
+                        </a>
+                    </article>
+                `;
                     container.insertAdjacentHTML("beforeend", card);
                 });
             }
@@ -511,6 +512,13 @@ c36 83 86 165 113 182 30 20 28 36 -8 67 -80 67 -267 75 -318 14 -10 -13 -9
                         return fim >= hoje;
                     });
 
+                    // ===== ORDENAR POR DATA INÍCIO =====
+                    eventos.sort((a, b) => {
+                        const dataA = new Date(a.dataInicio.split("/").reverse().join("-"));
+                        const dataB = new Date(b.dataInicio.split("/").reverse().join("-"));
+                        return dataA - dataB; // ordem crescente
+                    });
+
                     renderEventos(eventos);
                 }
             });
@@ -536,7 +544,9 @@ c36 83 86 165 113 182 30 20 28 36 -8 67 -80 67 -267 75 -318 14 -10 -13 -9
 
                 renderEventos(filtrados);
             });
-        });</script>
+        });
+    </script>
+
 
     <script>// Modal do formulário
         const modal = document.getElementById("formModal");
