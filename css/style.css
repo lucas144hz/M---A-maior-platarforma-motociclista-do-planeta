@@ -208,7 +208,7 @@ iframe {
     background: linear-gradient(135deg, #ff6f61, #fcb045);
     border: none;
     cursor: pointer;
-    font-size: 2rem;
+    font-size: 1rem;
     padding: 0rem 0.2rem;
     border-radius: 100%;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
@@ -217,7 +217,7 @@ iframe {
 
 .scroll-btn:hover {
     background: rgba(240, 240, 240, 1);
-}1
+}
 
 .scroll-btn.left {
     left: 0;
