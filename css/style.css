@@ -2,14 +2,10 @@
 
 :root {
     --primary-color: #e63946;
-    /* vermelho sangue */
     --secondary-color: #9ca3af;
-    /* cinza metálico */
     --text-light: #f5f5f5;
-    /* branco gelo */
     --white: #ffffff;
     --black: #0d0d0d;
-    /* fundo biker */
     --gradient-btn: linear-gradient(135deg, #ff6f61, #fcb045);
     --max-width: 1200px;
 }
@@ -19,6 +15,35 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/* Adicionar foco visível para acessibilidade */
+.btn:focus,
+.btn-form:focus,
+.link-btn:focus {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Melhorar responsividade com clamp */
+.sobre-nos h2 {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-light: #f5f5f5;
+        --background: #0d0d0d;
+    }
 }
 
 html {
@@ -110,6 +135,7 @@ ul {
     animation: fadeIn 0.4s ease-in-out;
     overflow: hidden;
 }
+
 nav.scrolled {
     width: 100%;
     background: linear-gradient(135deg, #ff6f61, #fcb045);
@@ -117,6 +143,7 @@ nav.scrolled {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
     transition: background 0.4s ease, box-shadow 0.4s ease;
 }
+
 .close {
     color: #555;
     float: right;
@@ -150,6 +177,65 @@ iframe {
 }
 
 /* Eventos */
+.eventos__wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+.eventos__lista {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 1rem 0;
+}
+
+.eventos__lista::-webkit-scrollbar {
+    height: 8px;
+}
+
+.eventos__lista::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+}
+
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    background: linear-gradient(135deg, #ff6f61, #fcb045);
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+    padding: 0rem 0.2rem;
+    border-radius: 100%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transition: background 0.2s;
+}
+
+.scroll-btn:hover {
+    background: rgba(240, 240, 240, 1);
+}1
+
+.scroll-btn.left {
+    left: 0;
+}
+
+.scroll-btn.right {
+    right: 0;
+}
+
+.evento {
+    min-width: 280px;
+    flex-shrink: 0;
+    background: #fff;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
 .filtro-eventos {
     margin: 20px auto;
     text-align: center;
@@ -218,6 +304,7 @@ iframe {
     font-size: 0.95rem;
     white-space: pre-wrap;
 }
+
 
 /* Navbar */
 nav {
@@ -330,6 +417,7 @@ nav.scrolled .nav__logo img {
     text-shadow: 0 0 8px #ff0000;
 }
 
+
 /* Footer */
 .footer {
     position: relative;
@@ -381,7 +469,7 @@ nav.scrolled .nav__logo img {
 /* Links Section */
 .links-section {
     text-align: center;
-    padding: 60px 20px;
+    padding: 70px 20px;
     background: #111;
 }
 
@@ -450,9 +538,6 @@ nav.scrolled .nav__logo img {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-/* Garante centralização e responsividade */
-/* (merged into the previous .modal-content selector above) */
 }
 
 /* Media Queries Desktop */
